@@ -1,16 +1,17 @@
-package com.example.cupcake.model
 
+package com.example.cupcake.model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
-import java.text.NumberFormat
 
 
 private const val PRICE_PER_CUPCAKE = 2.00
+
 private const val PRICE_FOR_SAME_DAY_PICKUP = 3.00
 
 class OrderViewModel : ViewModel() {
@@ -44,6 +45,9 @@ class OrderViewModel : ViewModel() {
         _date.value = pickupDate
         updatePrice()
     }
+
+
+
     fun hasHoFlavorSet(): Boolean {
         return _flavor.value.isNullOrEmpty()
     }
@@ -69,6 +73,7 @@ class OrderViewModel : ViewModel() {
     init {
         resetOrder()
     }
+
     private fun updatePrice() {
         var calculatedPrice = (quantity.value ?: 0) * PRICE_PER_CUPCAKE
         if (dateOptions[0] == _date.value) {
@@ -78,3 +83,4 @@ class OrderViewModel : ViewModel() {
     }
 
 }
+

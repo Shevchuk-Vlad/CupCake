@@ -1,5 +1,4 @@
 package com.example.cupcake
-
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.cupcake.model.OrderViewModel
 import org.junit.Assert.assertEquals
