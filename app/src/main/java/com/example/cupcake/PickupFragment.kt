@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentPickupBinding
 import com.example.cupcake.model.OrderViewModel
 
+
 /**
  * [PickupFragment] allows the user to choose a pickup date for the cupcake order.
  */
@@ -55,5 +56,10 @@ class PickupFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    fun cancelOrder() {
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_pickupFragment_to_startFragment)
     }
 }
